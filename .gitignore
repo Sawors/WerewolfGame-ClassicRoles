@@ -36,6 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+### Intellij ###
 /src/test/*
 /.idea/*
 /copy-extension.bat
