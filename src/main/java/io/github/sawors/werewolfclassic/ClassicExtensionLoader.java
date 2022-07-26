@@ -25,5 +25,10 @@ public class ClassicExtensionLoader extends WerewolfExtension
         registerBackgroundEvents(
                 new LittleGirlListenEvent(this)
         );
+        
+        addBundledLocale(
+                "en_UK",
+                "fr_FR"
+        );
     }
 }

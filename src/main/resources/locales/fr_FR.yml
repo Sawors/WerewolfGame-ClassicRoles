@@ -54,6 +54,24 @@ roles:
       role-description:
       action-description:
       thumbnail-url:
+  lovers:
+    channel: "💘amoureux"
+    intro:
+    embed:
+      title:
+      text:
+      role-description:
+      action-description:
+      thumbnail-url:
+  hunter:
+    channel: "🐗chasseur"
+    intro:
+    embed:
+      title:
+      text:
+      role-description:
+      action-description:
+      thumbnail-url:
 
 
 

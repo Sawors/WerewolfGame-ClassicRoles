@@ -37,7 +37,7 @@ roles:
       action-description:
       thumbnail-url:
   cupid:
-    channel: "💘cupid"
+    channel: "🏹cupid"
     intro:
     embed:
       title:
@@ -54,7 +54,24 @@ roles:
       role-description:
       action-description:
       thumbnail-url:
-
+  lovers:
+    channel: "💘lovers"
+    intro:
+    embed:
+      title:
+      text:
+      role-description:
+      action-description:
+      thumbnail-url:
+  hunter:
+    channel: "🐗hunter"
+    intro:
+    embed:
+      title:
+      text:
+      role-description:
+      action-description:
+      thumbnail-url:
 
 
 # DO NOT EDIT THIS

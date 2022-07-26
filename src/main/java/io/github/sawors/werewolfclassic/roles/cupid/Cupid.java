@@ -14,7 +14,6 @@ import net.dv8tion.jda.api.events.message.GenericMessageEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 public class Cupid extends PrimaryRole implements FirstNightRole, TextRole {
@@ -54,17 +53,11 @@ public class Cupid extends PrimaryRole implements FirstNightRole, TextRole {
     
     @Override
     public Collection<Permission> getChannelAllow(){
-        return List.of(
-                Permission.VIEW_CHANNEL,
-                Permission.MESSAGE_SEND,
-                Permission.MESSAGE_ADD_REACTION
-        );
+        return getExtension().getDefaultRoleChannelAllow();
     }
     @Override
     public Collection<Permission> getChannelDeny(){
-        return List.of(
-                Permission.MANAGE_CHANNEL
-        );
+        return getExtension().getDefaultRoleChannelDeny();
     }
     
     @Override
