@@ -1,0 +1,8 @@
+main: ClassicExtensionLoader
+name: "Classic Roles Extension"
+version: "0.1"
+author: "Sawors"
+description: |-
+  the default extension to add all the classic roles :
+  Cupid, Hunter, Little Girl, Lover, Seer, Witch
+source: "https://github.com/Sawors/WerewolfGame-ClassicRoles"
