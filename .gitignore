@@ -36,11 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/src/test/java/org/example/AppTest.java
-/.idea/dbnavigator.xml
-/.idea/encodings.xml
-/.idea/misc.xml
-/.idea/vcs.xml
-/.idea/.gitignore
-/.idea/uiDesigner.xml
+/src/test/*
+/.idea/*
 /copy-extension.bat
