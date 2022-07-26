@@ -1,6 +1,5 @@
 package io.github.sawors.werewolfclassic.roles.seer;
 
-import io.github.sawors.werewolfgame.bundledextensions.classic.roles.seer.Seer;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.GameManager;
 import io.github.sawors.werewolfgame.game.GamePhase;

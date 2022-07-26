@@ -1,6 +1,5 @@
 package io.github.sawors.werewolfclassic.roles.witch;
 
-import io.github.sawors.werewolfgame.bundledextensions.classic.roles.witch.Witch;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.GameManager;
 import io.github.sawors.werewolfgame.game.GamePhase;
