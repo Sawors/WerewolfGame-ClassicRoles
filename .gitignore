@@ -39,3 +39,4 @@ build/
 /src/test/*
 /.idea/*
 /copy-extension.bat
+/out/artifacts/werewolf_classic/werewolf-classic.jar
