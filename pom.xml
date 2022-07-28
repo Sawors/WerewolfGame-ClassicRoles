@@ -25,14 +25,8 @@
     </dependency>
     <dependency>
       <groupId>io.github.sawors</groupId>
-      <artifactId>werewolfgame</artifactId>
+      <artifactId>WerewolfGame</artifactId>
       <version>0.1</version>
-      <exclusions>
-        <exclusion>
-          <groupId>io.github.sawors</groupId>
-          <artifactId>werewolfgame</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
   </dependencies>
 
