@@ -60,12 +60,12 @@ public class Hunter extends PrimaryRole implements TextRole {
     }
     
     @Override
-    public MessageEmbed getHelpMessageEmbed() {
+    public MessageEmbed getHelpMessageEmbed(LoadedLocale lang) {
         return null;
     }
     
     @Override
-    public String getIntroMessage() {
+    public String getIntroMessage(LoadedLocale lang) {
         return "You are the Hunter";
     }
     

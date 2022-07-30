@@ -55,12 +55,12 @@ public class Lover extends PlayerRole implements FirstNightRole, TextRole {
     }
     
     @Override
-    public MessageEmbed getHelpMessageEmbed() {
+    public MessageEmbed getHelpMessageEmbed(LoadedLocale lang) {
         return null;
     }
     
     @Override
-    public String getIntroMessage() {
+    public String getIntroMessage(LoadedLocale lang) {
         return "You suddenly feel an inexplicable  love";
     }
     

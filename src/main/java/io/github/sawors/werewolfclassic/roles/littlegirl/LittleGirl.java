@@ -3,8 +3,8 @@ package io.github.sawors.werewolfclassic.roles.littlegirl;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.events.GameEvent;
 import io.github.sawors.werewolfgame.game.roles.DefaultRoleType;
+import io.github.sawors.werewolfgame.game.roles.PrimaryRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
-import io.github.sawors.werewolfgame.game.roles.WolfLike;
 import io.github.sawors.werewolfgame.localization.LoadedLocale;
 import io.github.sawors.werewolfgame.localization.TranslatableText;
 import net.dv8tion.jda.api.Permission;
@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.Set;
 
-public class LittleGirl extends WolfLike implements TextRole {
+public class LittleGirl extends PrimaryRole implements TextRole {
     public LittleGirl(WerewolfExtension extension) {
         super(extension);
     }
@@ -24,7 +24,12 @@ public class LittleGirl extends WolfLike implements TextRole {
     public String toString() {
         return DefaultRoleType.LITTLE_GIRL.toString();
     }
-    
+
+    @Override
+    public Integer priority() {
+        return null;
+    }
+
     @Override
     public void onLoad() {
     
@@ -49,12 +54,12 @@ public class LittleGirl extends WolfLike implements TextRole {
     }
     
     @Override
-    public MessageEmbed getHelpMessageEmbed() {
+    public MessageEmbed getHelpMessageEmbed(LoadedLocale lang) {
         return null;
     }
     
     @Override
-    public String getIntroMessage() {
+    public String getIntroMessage(LoadedLocale lang) {
         return "Welcome here Little Girl !";
     }
     
@@ -71,10 +76,5 @@ public class LittleGirl extends WolfLike implements TextRole {
     @Override
     public void onReactionRemoved(GenericMessageEvent event) {
     
-    }
-    
-    @Override
-    public void wolfAction() {
-        //TODO : Little Girl action
     }
 }

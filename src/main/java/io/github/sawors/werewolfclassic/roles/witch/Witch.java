@@ -61,12 +61,12 @@ public class Witch extends PrimaryRole implements TextRole {
     }
     
     @Override
-    public MessageEmbed getHelpMessageEmbed() {
+    public MessageEmbed getHelpMessageEmbed(LoadedLocale lang) {
         return null;
     }
     
     @Override
-    public String getIntroMessage() {
+    public String getIntroMessage(LoadedLocale lang) {
         return "Welcome here Witch !";
     }
     

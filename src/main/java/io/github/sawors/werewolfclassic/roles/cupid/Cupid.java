@@ -61,12 +61,12 @@ public class Cupid extends PrimaryRole implements FirstNightRole, TextRole {
     }
     
     @Override
-    public MessageEmbed getHelpMessageEmbed() {
+    public MessageEmbed getHelpMessageEmbed(LoadedLocale lang) {
         return null;
     }
     
     @Override
-    public String getIntroMessage() {
+    public String getIntroMessage(LoadedLocale lang) {
         return "Welcome here Cupid !";
     }
     
