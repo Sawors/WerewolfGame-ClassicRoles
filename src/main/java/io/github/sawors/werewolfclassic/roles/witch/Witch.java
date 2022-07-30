@@ -1,5 +1,6 @@
 package io.github.sawors.werewolfclassic.roles.witch;
 
+import io.github.sawors.werewolfgame.Main;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.events.GameEvent;
 import io.github.sawors.werewolfgame.game.roles.DefaultRoleType;
@@ -7,6 +8,7 @@ import io.github.sawors.werewolfgame.game.roles.PrimaryRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
 import io.github.sawors.werewolfgame.localization.LoadedLocale;
 import io.github.sawors.werewolfgame.localization.TranslatableText;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.GenericMessageEvent;
@@ -62,12 +64,20 @@ public class Witch extends PrimaryRole implements TextRole {
     
     @Override
     public MessageEmbed getHelpMessageEmbed(LoadedLocale lang) {
-        return null;
+        TranslatableText textpool = new TranslatableText(getExtension().getTranslator(), lang);
+        return
+                new EmbedBuilder()
+                        .setTitle(textpool.get("roles.witch.name",true))
+                        .setDescription(textpool.get("roles.witch.text",true))
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles.witch.role-description"),false)
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles.witch.win-condition"),false)
+                        .setThumbnail(textpool.get("roles.witch.thumbnail", true))
+                        .build();
     }
     
     @Override
     public String getIntroMessage(LoadedLocale lang) {
-        return "Welcome here Witch !";
+        return null;
     }
     
     @Override

@@ -27,6 +27,7 @@
       <groupId>io.github.sawors</groupId>
       <artifactId>WerewolfGame</artifactId>
       <version>0.2</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 

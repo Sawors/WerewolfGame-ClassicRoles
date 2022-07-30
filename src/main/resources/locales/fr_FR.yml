@@ -10,68 +10,74 @@ locale-identifier: "french"
 
 roles:
   witch:
+    name: "Sorcière"
     channel: "🐀sorcière"
-    intro:
-    embed:
-      title:
-      text:
-      role-description:
-      action-description:
-      thumbnail-url:
+    text: "*Tu es une sorcière Harry*"
+    role-description: |-
+      **>description here<**
+    win-condition: "La Sorcière est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
+    thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/5/53/Carte5.png/revision/latest?cb=20210104171444&path-prefix=fr"
   seer:
+    name: "Voyante"
     channel: "🔮voyante"
-    intro:
-    embed:
-      title:
-      text:
-      role-description:
-      action-description:
-      thumbnail-url:
+    text: "*Je vois... je vois...*"
+    role-description: |-
+      **>description here<**
+    win-condition: "La Voyante est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
+    thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/b/be/Carte3.png/revision/latest?cb=20210104171212&path-prefix=fr"
   littlegirl:
+    name: "Petite Fille"
     channel: "🌒petite-fille"
-    intro:
-    embed:
-      title:
-      text:
-      role-description:
-      action-description:
-      thumbnail-url:
+    text: "*Une ombre dans la nuit*"
+    role-description: |-
+      **>description here<**
+    win-condition: "La Petite Fille est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
+    thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/4/4f/Carte12.png/revision/latest?cb=20210104172327&path-prefix=fr"
   cupid:
-    channel: "💘cupidon"
-    intro:
-    embed:
-      title:
-      text:
-      role-description:
-      action-description:
-      thumbnail-url:
-  wolf:
-    channel: "🐺loups"
-    intro:
-    embed:
-      title:
-      text:
-      role-description:
-      action-description:
-      thumbnail-url:
+    name: "Cupidon"
+    channel: "🏹cupidon"
+    text: "*Le chemin le plus rapide vers que coeur de quelqu'un, c'est à travers sa poitrine*"
+    role-description: |-
+      **>description here<**
+    win-condition: "Cupidon est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
+    thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/0/09/Carte7.png/revision/latest?cb=20210104171708&path-prefix=fr"
   lovers:
+    name: "Amoureux"
     channel: "💘amoureux"
-    intro:
-    embed:
-      title:
-      text:
-      role-description:
-      action-description:
-      thumbnail-url:
+    text: "*Touchés par la Flèche*"
+    role-description: |-
+      **>description here<**
+    win-condition: "Les Amoureux ont un objectif particulier"
+    thumbnail:
   hunter:
+    name: "Chasseur"
     channel: "🐗chasseur"
-    intro:
-    embed:
-      title:
-      text:
-      role-description:
-      action-description:
-      thumbnail-url:
+    text: "*Armé, Chargé, Calibré*"
+    role-description: |-
+      **>description here<**
+    win-condition: "Le Chasseur est allié au Village, il doit éliminer les Loups-Garou qu'ils ne dévorent tout le monde"
+    thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/0/0e/Carte6.png/revision/latest?cb=20210104171604&path-prefix=fr"
+
+votes:
+  witch-action:
+    title: "Que souhaitez vous faire ?"
+    description: "Tuer ? Sauver ? Ne rien faire ? Vous ne pouvez effectuer qu'une seule action cette nuit, choisissez bien..."
+    victim-announcement: "%player% a été mangé par les Loups"
+    kill-label: "👎 Tuer"
+    rez-label: "👍 Sauver"
+    nothing-label: "🤚 Ne rien faire"
+  witch-target:
+    title: "Qui voulez vous %action% ?"
+    description: "Choisissez la personne que vous souhaitez tuer, une fois votre choix fait vous perdez la possibilité de tuer quelqu'un avec vos potions"
+  seer:
+    title: "De qui souhaitez vous voir le role ?"
+    description: "Choisissez une personne dont vous souhaitez découvrir le rôle"
+  cupid:
+    title: "Qui sera frappé par vos flèches ?"
+    description: "Choisissez deux personnes que vous souhaitez lier d'amour. \nUne fois le couple créé leur objectif est de survivre ensembles jusqu'à la fin de la partie, lorsqu'un des Amoureux meurt l'autre meurt de chagrin.\nSi deux rôles de camps différents sont liés leur but est de gagner seuls en éliminant tous les autres joueurs"
+  hunter:
+    title: "Sur qui souhaitez vous abattre votre vengeance ?"
+    description: "Choisissez un joueur à exécuter"
 
 
 
