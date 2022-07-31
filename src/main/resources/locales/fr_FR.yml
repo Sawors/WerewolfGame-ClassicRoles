@@ -13,6 +13,7 @@ roles:
     name: "Sorcière"
     channel: "🐀sorcière"
     text: "*Tu es une sorcière Harry*"
+    announcement: "La **Sorcière** se réveille, elle peut choisir de ressusciter la victime des Loups, tuer quelqu'un ou ne rien faire"
     role-description: |-
       **>description here<**
     win-condition: "La Sorcière est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
@@ -21,6 +22,7 @@ roles:
     name: "Voyante"
     channel: "🔮voyante"
     text: "*Je vois... je vois...*"
+    announcement: "La **Voyante** se réveille et indique une personne dont elle souhaiterais voir le rôle"
     role-description: |-
       **>description here<**
     win-condition: "La Voyante est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
@@ -29,6 +31,7 @@ roles:
     name: "Petite Fille"
     channel: "🌒petite-fille"
     text: "*Une ombre dans la nuit*"
+    announcement: ""
     role-description: |-
       **>description here<**
     win-condition: "La Petite Fille est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
@@ -37,6 +40,7 @@ roles:
     name: "Cupidon"
     channel: "🏹cupidon"
     text: "*Le chemin le plus rapide vers que coeur de quelqu'un, c'est à travers sa poitrine*"
+    announcement: "Le **Cupidon** se réveille, ce soir il frappera deux personnes d'un amour fou qui les liera dans la vie comme dans la mort"
     role-description: |-
       **>description here<**
     win-condition: "Cupidon est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
@@ -45,6 +49,7 @@ roles:
     name: "Amoureux"
     channel: "💘amoureux"
     text: "*Touchés par la Flèche*"
+    announcement: "Les **Amoureux** se réveillent et prennent connaissance l'un de l'autre"
     role-description: |-
       **>description here<**
     win-condition: "Les Amoureux ont un objectif particulier"
@@ -53,6 +58,7 @@ roles:
     name: "Chasseur"
     channel: "🐗chasseur"
     text: "*Armé, Chargé, Calibré*"
+    announcement: ""
     role-description: |-
       **>description here<**
     win-condition: "Le Chasseur est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
