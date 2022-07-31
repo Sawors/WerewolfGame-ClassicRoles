@@ -44,7 +44,7 @@ public class Lover extends PlayerRole implements FirstNightRole, TextRole {
     
     @Override
     public String getChannelName(@Nullable LoadedLocale loadedLocale) {
-        return new TranslatableText(getExtension().getTranslator(), loadedLocale).get("roles.lovers.channel");
+        return new TranslatableText(getExtension().getTranslator(), loadedLocale).get("roles.lover.channel");
     }
     
     @Override
@@ -63,6 +63,7 @@ public class Lover extends PlayerRole implements FirstNightRole, TextRole {
                 new EmbedBuilder()
                         .setTitle(textpool.get("roles.lover.name",true))
                         .setDescription(textpool.get("roles.lover.text",true))
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.supplementary.title"),new TranslatableText(Main.getTranslator(), lang).get("roles.supplementary.description"),false)
                         .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles.lover.role-description"),false)
                         .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles.lover.win-condition"),false)
                         .setThumbnail(textpool.get("roles.lover.thumbnail", true))

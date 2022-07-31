@@ -41,21 +41,21 @@ roles:
       **>description here<**
     win-condition: "Cupidon est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
     thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/0/09/Carte7.png/revision/latest?cb=20210104171708&path-prefix=fr"
-  lovers:
+  lover:
     name: "Amoureux"
     channel: "💘amoureux"
     text: "*Touchés par la Flèche*"
     role-description: |-
       **>description here<**
     win-condition: "Les Amoureux ont un objectif particulier"
-    thumbnail:
+    thumbnail: "https://c-fa.cdn.smule.com/rs-s95/arr/3f/2d/f9cad67e-9fb3-483c-afdb-c4e4dafc4eda.jpg"
   hunter:
     name: "Chasseur"
     channel: "🐗chasseur"
     text: "*Armé, Chargé, Calibré*"
     role-description: |-
       **>description here<**
-    win-condition: "Le Chasseur est allié au Village, il doit éliminer les Loups-Garou qu'ils ne dévorent tout le monde"
+    win-condition: "Le Chasseur est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
     thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/0/0e/Carte6.png/revision/latest?cb=20210104171604&path-prefix=fr"
 
 votes:
