@@ -2,8 +2,6 @@ package io.github.sawors.werewolfclassic.roles.littlegirl;
 
 import io.github.sawors.werewolfgame.Main;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
-import io.github.sawors.werewolfgame.game.events.GameEvent;
-import io.github.sawors.werewolfgame.game.roles.DefaultRoleType;
 import io.github.sawors.werewolfgame.game.roles.PrimaryRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
 import io.github.sawors.werewolfgame.localization.LoadedLocale;
@@ -15,16 +13,10 @@ import net.dv8tion.jda.api.events.message.GenericMessageEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
-import java.util.Set;
 
 public class LittleGirl extends PrimaryRole implements TextRole {
     public LittleGirl(WerewolfExtension extension) {
         super(extension);
-    }
-    
-    @Override
-    public String toString() {
-        return DefaultRoleType.LITTLE_GIRL.toString();
     }
 
     @Override
@@ -35,11 +27,6 @@ public class LittleGirl extends PrimaryRole implements TextRole {
     @Override
     public void onLoad() {
     
-    }
-    
-    @Override
-    public Set<GameEvent> getEvents() {
-        return Set.of();
     }
     
     @Override
@@ -70,6 +57,11 @@ public class LittleGirl extends PrimaryRole implements TextRole {
     
     @Override
     public String getIntroMessage(LoadedLocale lang) {
+        return null;
+    }
+    
+    @Override
+    public String getAnnouncementMessage(LoadedLocale loadedLocale) {
         return null;
     }
     

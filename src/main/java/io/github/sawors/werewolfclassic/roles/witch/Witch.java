@@ -2,8 +2,7 @@ package io.github.sawors.werewolfclassic.roles.witch;
 
 import io.github.sawors.werewolfgame.Main;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
-import io.github.sawors.werewolfgame.game.events.GameEvent;
-import io.github.sawors.werewolfgame.game.roles.DefaultRoleType;
+import io.github.sawors.werewolfgame.game.GamePhase;
 import io.github.sawors.werewolfgame.game.roles.PrimaryRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
 import io.github.sawors.werewolfgame.localization.LoadedLocale;
@@ -15,38 +14,22 @@ import net.dv8tion.jda.api.events.message.GenericMessageEvent;
 
 import javax.annotation.Nullable;
 import java.util.Collection;
-import java.util.Set;
 
 public class Witch extends PrimaryRole implements TextRole {
+    
     public Witch(WerewolfExtension extension) {
         super(extension);
-    }
-    
-    @Override
-    public String toString() {
-        return DefaultRoleType.WITCH.toString();
+        addEvent(new WitchChooseActionEvent(getExtension()), GamePhase.NIGHT_POSTWOLVES);
     }
 
     @Override
     public Integer priority() {
         return 10;
     }
-
-    @Override
-    public void nightAction() {
-        //TODO : Witch action
-    }
     
     @Override
     public void onLoad() {
     
-    }
-    
-    @Override
-    public Set<GameEvent> getEvents() {
-        return Set.of(
-                new WitchPotionEvent(getExtension())
-        );
     }
     
     @Override
@@ -73,6 +56,11 @@ public class Witch extends PrimaryRole implements TextRole {
                         .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles.witch.win-condition"),false)
                         .setThumbnail(textpool.get("roles.witch.thumbnail", true))
                         .build();
+    }
+    
+    @Override
+    public String getAnnouncementMessage(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".announcement");
     }
     
     @Override

@@ -2,10 +2,10 @@ package io.github.sawors.werewolfclassic.roles.seer;
 
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.GameManager;
-import io.github.sawors.werewolfgame.game.GamePhase;
 import io.github.sawors.werewolfgame.game.events.GameEvent;
 import io.github.sawors.werewolfgame.game.events.RoleEvent;
 import io.github.sawors.werewolfgame.game.roles.PlayerRole;
+import io.github.sawors.werewolfgame.game.roles.TextRole;
 
 public class SeerPeekEvent extends GameEvent implements RoleEvent {
     
@@ -16,11 +16,9 @@ public class SeerPeekEvent extends GameEvent implements RoleEvent {
     @Override
     public void start(GameManager manager) {
     
-    }
     
-    @Override
-    public GamePhase getPhase() {
-        return GamePhase.NIGHT_PREWOLVES;
+        manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getAnnouncementMessage(manager.getLanguage())).queue();
+        manager.nextEvent();
     }
     
     @Override

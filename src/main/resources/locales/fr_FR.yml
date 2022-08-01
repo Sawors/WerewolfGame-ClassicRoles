@@ -13,7 +13,7 @@ roles:
     name: "Sorcière"
     channel: "🐀sorcière"
     text: "*Tu es une sorcière Harry*"
-    announcement: "La **Sorcière** se réveille, elle peut choisir de ressusciter la victime des Loups, tuer quelqu'un ou ne rien faire"
+    announcement: "*La **Sorcière** se réveille, elle peut choisir de ressusciter la victime des Loups, tuer quelqu'un ou ne rien faire*"
     role-description: |-
       **>description here<**
     win-condition: "La Sorcière est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
@@ -22,7 +22,7 @@ roles:
     name: "Voyante"
     channel: "🔮voyante"
     text: "*Je vois... je vois...*"
-    announcement: "La **Voyante** se réveille et indique une personne dont elle souhaiterais voir le rôle"
+    announcement: "*La **Voyante** se réveille et indique une personne dont elle souhaiterais voir le rôle*"
     role-description: |-
       **>description here<**
     win-condition: "La Voyante est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
@@ -40,7 +40,7 @@ roles:
     name: "Cupidon"
     channel: "🏹cupidon"
     text: "*Le chemin le plus rapide vers que coeur de quelqu'un, c'est à travers sa poitrine*"
-    announcement: "Le **Cupidon** se réveille, ce soir il frappera deux personnes d'un amour fou qui les liera dans la vie comme dans la mort"
+    announcement: "*Le **Cupidon** se réveille, ce soir il frappera deux personnes d'un amour fou qui les liera dans la vie comme dans la mort*"
     role-description: |-
       **>description here<**
     win-condition: "Cupidon est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
@@ -49,7 +49,7 @@ roles:
     name: "Amoureux"
     channel: "💘amoureux"
     text: "*Touchés par la Flèche*"
-    announcement: "Les **Amoureux** se réveillent et prennent connaissance l'un de l'autre"
+    announcement: "*Les **Amoureux** se réveillent et prennent connaissance l'un de l'autre*"
     role-description: |-
       **>description here<**
     win-condition: "Les Amoureux ont un objectif particulier"
@@ -68,12 +68,15 @@ votes:
   witch-action:
     title: "Que souhaitez vous faire ?"
     description: "Tuer ? Sauver ? Ne rien faire ? Vous ne pouvez effectuer qu'une seule action cette nuit, choisissez bien..."
-    victim-announcement: "%player% a été mangé par les Loups"
+    victim-announcement: "**%user%** *a été tué cette nuit*"
+    no-victim-announcement: "*personne n'a été tué cette nuit*"
     kill-label: "👎 Tuer"
-    rez-label: "👍 Sauver"
-    nothing-label: "🤚 Ne rien faire"
-  witch-target:
-    title: "Qui voulez vous %action% ?"
+    save-label: "👍 Sauver"
+    ignore-label: "🤚 Ne rien faire"
+    confirm: "**%user%** *a été touché par votre potion*"
+    ignore-confirm: "*très bien, rien ne se passera*"
+  witch-kill:
+    title: "Qui voulez vous tuer ?"
     description: "Choisissez la personne que vous souhaitez tuer, une fois votre choix fait vous perdez la possibilité de tuer quelqu'un avec vos potions"
   seer:
     title: "De qui souhaitez vous voir le role ?"

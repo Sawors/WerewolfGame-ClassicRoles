@@ -2,9 +2,7 @@ package io.github.sawors.werewolfclassic.roles.cupid;
 
 import io.github.sawors.werewolfgame.Main;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
-import io.github.sawors.werewolfgame.game.events.GameEvent;
-import io.github.sawors.werewolfgame.game.roles.DefaultRoleType;
-import io.github.sawors.werewolfgame.game.roles.FirstNightRole;
+import io.github.sawors.werewolfgame.game.GamePhase;
 import io.github.sawors.werewolfgame.game.roles.PrimaryRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
 import io.github.sawors.werewolfgame.localization.LoadedLocale;
@@ -16,16 +14,11 @@ import net.dv8tion.jda.api.events.message.GenericMessageEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
-import java.util.Set;
 
-public class Cupid extends PrimaryRole implements FirstNightRole, TextRole {
+public class Cupid extends PrimaryRole implements TextRole {
     public Cupid(WerewolfExtension extension) {
         super(extension);
-    }
-    
-    @Override
-    public String toString() {
-        return DefaultRoleType.CUPID.toString();
+        addRoundEvent(new CupidLoversEvent(getExtension()), GamePhase.NIGHT_PREWOLVES,1);
     }
 
     @Override
@@ -36,16 +29,6 @@ public class Cupid extends PrimaryRole implements FirstNightRole, TextRole {
     @Override
     public void onLoad() {
     
-    }
-    
-    @Override
-    public Set<GameEvent> getEvents() {
-        return Set.of();
-    }
-    
-    @Override
-    public void doFirstNightAction() {
-        //TODO : select lovers on first night
     }
     
     @Override
@@ -73,6 +56,11 @@ public class Cupid extends PrimaryRole implements FirstNightRole, TextRole {
                         .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles.cupid.win-condition"),false)
                         .setThumbnail(textpool.get("roles.cupid.thumbnail", true))
                         .build();
+    }
+    
+    @Override
+    public String getAnnouncementMessage(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".announcement");
     }
     
     @Override

@@ -2,10 +2,10 @@ package io.github.sawors.werewolfclassic.roles.cupid;
 
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.GameManager;
-import io.github.sawors.werewolfgame.game.GamePhase;
 import io.github.sawors.werewolfgame.game.events.GameEvent;
 import io.github.sawors.werewolfgame.game.events.RoleEvent;
 import io.github.sawors.werewolfgame.game.roles.PlayerRole;
+import io.github.sawors.werewolfgame.game.roles.TextRole;
 
 public class CupidLoversEvent extends GameEvent implements RoleEvent {
     
@@ -14,13 +14,11 @@ public class CupidLoversEvent extends GameEvent implements RoleEvent {
     }
     
     @Override
-    public void start(GameManager gameManager) {
+    public void start(GameManager manager) {
     
-    }
     
-    @Override
-    public GamePhase getPhase() {
-        return null;
+        manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getAnnouncementMessage(manager.getLanguage())).queue();
+        manager.nextEvent();
     }
     
     @Override

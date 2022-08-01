@@ -1,30 +1,25 @@
-package io.github.sawors.werewolfclassic.roles.witch;
+package io.github.sawors.werewolfclassic.roles.lover;
 
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.GameManager;
-import io.github.sawors.werewolfgame.game.GamePhase;
 import io.github.sawors.werewolfgame.game.events.GameEvent;
 import io.github.sawors.werewolfgame.game.events.RoleEvent;
 import io.github.sawors.werewolfgame.game.roles.PlayerRole;
+import io.github.sawors.werewolfgame.game.roles.TextRole;
 
-public class WitchPotionEvent extends GameEvent implements RoleEvent {
-    
-    public WitchPotionEvent(WerewolfExtension extension) {
+public class LoverWakeUpEvent extends GameEvent implements RoleEvent {
+    public LoverWakeUpEvent(WerewolfExtension extension) {
         super(extension);
     }
     
     @Override
     public void start(GameManager manager) {
-    
-    }
-    
-    @Override
-    public GamePhase getPhase() {
-        return GamePhase.NIGHT_POSTWOLVES;
+        manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getAnnouncementMessage(manager.getLanguage())).queue();
+        manager.nextEvent();
     }
     
     @Override
     public PlayerRole getRole() {
-        return new Witch(extension);
+        return new Lover(getExtension());
     }
 }

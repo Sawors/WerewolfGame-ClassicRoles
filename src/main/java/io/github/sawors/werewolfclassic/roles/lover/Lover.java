@@ -2,8 +2,7 @@ package io.github.sawors.werewolfclassic.roles.lover;
 
 import io.github.sawors.werewolfgame.Main;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
-import io.github.sawors.werewolfgame.game.roles.DefaultRoleType;
-import io.github.sawors.werewolfgame.game.roles.FirstNightRole;
+import io.github.sawors.werewolfgame.game.GamePhase;
 import io.github.sawors.werewolfgame.game.roles.PlayerRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
 import io.github.sawors.werewolfgame.localization.LoadedLocale;
@@ -16,30 +15,16 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 
-public class Lover extends PlayerRole implements FirstNightRole, TextRole {
+public class Lover extends PlayerRole implements TextRole {
     
     public Lover(WerewolfExtension extension) {
         super(extension);
-    }
-    
-    @Override
-    public String toString() {
-        return DefaultRoleType.LOVER.toString();
+        addEvent(new LoverWakeUpEvent(getExtension()), GamePhase.NIGHT_PREWOLVES);
     }
 
     @Override
     public Integer priority() {
         return -20;
-    }
-
-    @Override
-    public void onDeathAction() {
-        //TODO : Lover action (kill)
-    }
-    
-    @Override
-    public void doFirstNightAction() {
-        //TODO : Let them know each other on the first night
     }
     
     @Override
@@ -73,6 +58,11 @@ public class Lover extends PlayerRole implements FirstNightRole, TextRole {
     @Override
     public String getIntroMessage(LoadedLocale lang) {
         return null;
+    }
+    
+    @Override
+    public String getAnnouncementMessage(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".announcement");
     }
     
     @Override
