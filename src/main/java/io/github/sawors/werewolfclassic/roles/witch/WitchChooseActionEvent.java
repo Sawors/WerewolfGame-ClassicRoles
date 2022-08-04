@@ -26,6 +26,8 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
     private static final String nohealtag = "witchnoheal";
     private static final String nokilltag = "witchnokill";
     
+    private String victimname = "";
+    
     public WitchChooseActionEvent(WerewolfExtension extension) {
         super(extension);
     }
@@ -63,8 +65,8 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
         
         if(manager.getPendingDeath().size() > 0){
             User w = manager.getDiscordUser(new ArrayList<>(manager.getPendingDeath()).get(0));
-            String name = w != null ? w.getName() : new ArrayList<>(manager.getPendingDeath()).get(0).toString();
-            votechannel.sendMessage(texts.get("votes.witch-action.victim-announcement").replaceAll("%user%",name)).queue();
+            victimname = w != null ? w.getName() : new ArrayList<>(manager.getPendingDeath()).get(0).toString();
+            votechannel.sendMessage(texts.get("votes.witch-action.victim-announcement").replaceAll("%user%",victimname)).queue();
         } else {
             killbutton = killbutton.asDisabled();
             votechannel.sendMessage(texts.get("votes.witch-action.no-victim-announcement")).queue();
@@ -115,7 +117,9 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
                 if(witchplayer != null){
                     witchplayer.addTag(nohealtag);
                 }
-                votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(), manager.getLanguage()).get("votes.witch-action.confirm")).queue();
+                closeVote();
+                votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(), manager.getLanguage()).get("votes.witch-action.confirm").replaceAll("%user%",victimname)).queue();
+                manager.nextEvent();
             }
             case ignoreaction -> {
                 Main.logAdmin("Witch ignore");
