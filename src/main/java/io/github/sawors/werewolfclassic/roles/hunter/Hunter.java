@@ -30,10 +30,10 @@ public class Hunter extends PrimaryRole implements TextRole {
     public void onLoad() {
     
     }
-    
+
     @Override
     public String getChannelName(@Nullable LoadedLocale loadedLocale) {
-        return new TranslatableText(getExtension().getTranslator(), loadedLocale).get("roles.hunter.channel");
+        return new TranslatableText(getExtension().getTranslator(), loadedLocale).get("roles."+getRoleName()+".channel");
     }
     
     @Override
@@ -50,11 +50,11 @@ public class Hunter extends PrimaryRole implements TextRole {
         TranslatableText textpool = new TranslatableText(getExtension().getTranslator(), lang);
         return
                 new EmbedBuilder()
-                        .setTitle(textpool.get("roles.hunter.name",true))
-                        .setDescription(textpool.get("roles.hunter.text",true))
-                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles.hunter.role-description"),false)
-                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles.hunter.win-condition"),false)
-                        .setThumbnail(textpool.get("roles.hunter.thumbnail", true))
+                        .setTitle(textpool.get("roles."+getRoleName()+".name",true))
+                        .setDescription(textpool.get("roles."+getRoleName()+".text",true))
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles."+getRoleName()+".role-description"),false)
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles."+getRoleName()+".win-condition"),false)
+                        .setThumbnail(textpool.get("roles."+getRoleName()+".thumbnail", true))
                         .build();
     }
     
@@ -62,12 +62,17 @@ public class Hunter extends PrimaryRole implements TextRole {
     public String getIntroMessage(LoadedLocale lang) {
         return null;
     }
-    
+
     @Override
-    public String getAnnouncementMessage(LoadedLocale loadedLocale) {
-        return null;
+    public String getRoundStartAnnouncement(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".round-start");
     }
-    
+
+    @Override
+    public String getRoundEndAnnouncement(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".round-end");
+    }
+
     @Override
     public void onMessageSent(GenericMessageEvent genericMessageEvent) {
     

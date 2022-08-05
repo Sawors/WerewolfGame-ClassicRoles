@@ -34,7 +34,7 @@ public class Witch extends PrimaryRole implements TextRole {
     
     @Override
     public String getChannelName(@Nullable LoadedLocale language) {
-        return new TranslatableText(getExtension().getTranslator(), language).get("roles.witch.channel");
+        return new TranslatableText(getExtension().getTranslator(), language).get("roles."+getRoleName()+".channel");
     }
     @Override
     public Collection<Permission> getChannelAllow(){
@@ -50,17 +50,12 @@ public class Witch extends PrimaryRole implements TextRole {
         TranslatableText textpool = new TranslatableText(getExtension().getTranslator(), lang);
         return
                 new EmbedBuilder()
-                        .setTitle(textpool.get("roles.witch.name",true))
-                        .setDescription(textpool.get("roles.witch.text",true))
-                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles.witch.role-description"),false)
-                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles.witch.win-condition"),false)
-                        .setThumbnail(textpool.get("roles.witch.thumbnail", true))
+                        .setTitle(textpool.get("roles."+getRoleName()+".name",true))
+                        .setDescription(textpool.get("roles."+getRoleName()+".text",true))
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles."+getRoleName()+".role-description"),false)
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles."+getRoleName()+".win-condition"),false)
+                        .setThumbnail(textpool.get("roles."+getRoleName()+".thumbnail", true))
                         .build();
-    }
-    
-    @Override
-    public String getAnnouncementMessage(LoadedLocale locale) {
-        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".announcement");
     }
     
     @Override
@@ -77,7 +72,17 @@ public class Witch extends PrimaryRole implements TextRole {
     public void onReactionAdded(GenericMessageEvent event) {
     
     }
-    
+
+    @Override
+    public String getRoundStartAnnouncement(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".round-start");
+    }
+
+    @Override
+    public String getRoundEndAnnouncement(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".round-end");
+    }
+
     @Override
     public void onReactionRemoved(GenericMessageEvent event) {
     

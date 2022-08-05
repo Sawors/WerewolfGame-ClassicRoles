@@ -33,7 +33,7 @@ public class Cupid extends PrimaryRole implements TextRole {
     
     @Override
     public String getChannelName(@Nullable LoadedLocale language) {
-        return new TranslatableText(getExtension().getTranslator(), language).get("roles.cupid.channel");
+        return new TranslatableText(getExtension().getTranslator(), language).get("roles."+getRoleName()+".channel");
     }
     
     @Override
@@ -50,24 +50,29 @@ public class Cupid extends PrimaryRole implements TextRole {
         TranslatableText textpool = new TranslatableText(getExtension().getTranslator(), lang);
         return
                 new EmbedBuilder()
-                        .setTitle(textpool.get("roles.cupid.name",true))
-                        .setDescription(textpool.get("roles.cupid.text",true))
-                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles.cupid.role-description"),false)
-                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles.cupid.win-condition"),false)
-                        .setThumbnail(textpool.get("roles.cupid.thumbnail", true))
+                        .setTitle(textpool.get("roles."+getRoleName()+".name",true))
+                        .setDescription(textpool.get("roles."+getRoleName()+".text",true))
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles."+getRoleName()+".role-description"),false)
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles."+getRoleName()+".win-condition"),false)
+                        .setThumbnail(textpool.get("roles."+getRoleName()+".thumbnail", true))
                         .build();
-    }
-    
-    @Override
-    public String getAnnouncementMessage(LoadedLocale locale) {
-        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".announcement");
     }
     
     @Override
     public String getIntroMessage(LoadedLocale lang) {
         return null;
     }
-    
+
+    @Override
+    public String getRoundStartAnnouncement(LoadedLocale loadedLocale) {
+        return null;
+    }
+
+    @Override
+    public String getRoundEndAnnouncement(LoadedLocale loadedLocale) {
+        return null;
+    }
+
     @Override
     public void onMessageSent(GenericMessageEvent event) {
     

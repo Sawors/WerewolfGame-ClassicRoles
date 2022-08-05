@@ -35,7 +35,7 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
     @Override
     public void start(GameManager manager) {
         
-        manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getAnnouncementMessage(manager.getLanguage())).queue();
+        manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundStartAnnouncement(manager.getLanguage())).queue();
         start(manager, new EmbedBuilder());
     }
     
@@ -119,12 +119,14 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
                 }
                 closeVote();
                 votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(), manager.getLanguage()).get("votes.witch-action.confirm").replaceAll("%user%",victimname)).queue();
+                manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundEndAnnouncement(manager.getLanguage())).queue();
                 manager.nextEvent();
             }
             case ignoreaction -> {
                 Main.logAdmin("Witch ignore");
                 votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(), manager.getLanguage()).get("votes.witch-action.ignore-confirm")).queue();
                 closeVote();
+                manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundEndAnnouncement(manager.getLanguage())).queue();
                 manager.nextEvent();
             }
         }

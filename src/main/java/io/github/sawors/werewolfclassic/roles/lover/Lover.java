@@ -29,7 +29,7 @@ public class Lover extends PlayerRole implements TextRole {
     
     @Override
     public String getChannelName(@Nullable LoadedLocale loadedLocale) {
-        return new TranslatableText(getExtension().getTranslator(), loadedLocale).get("roles.lover.channel");
+        return new TranslatableText(getExtension().getTranslator(), loadedLocale).get("roles."+getRoleName()+".channel");
     }
     
     @Override
@@ -46,12 +46,12 @@ public class Lover extends PlayerRole implements TextRole {
         TranslatableText textpool = new TranslatableText(getExtension().getTranslator(), lang);
         return
                 new EmbedBuilder()
-                        .setTitle(textpool.get("roles.lover.name",true))
-                        .setDescription(textpool.get("roles.lover.text",true))
+                        .setTitle(textpool.get("roles."+getRoleName()+".name",true))
+                        .setDescription(textpool.get("roles."+getRoleName()+".text",true))
                         .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.supplementary.title"),new TranslatableText(Main.getTranslator(), lang).get("roles.supplementary.description"),false)
-                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles.lover.role-description"),false)
-                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles.lover.win-condition"),false)
-                        .setThumbnail(textpool.get("roles.lover.thumbnail", true))
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.role-description"), textpool.get("roles."+getRoleName()+".role-description"),false)
+                        .addField(new TranslatableText(Main.getTranslator(), lang).get("roles.generic.win-condition"), textpool.get("roles."+getRoleName()+".win-condition"),false)
+                        .setThumbnail(textpool.get("roles."+getRoleName()+".thumbnail", true))
                         .build();
     }
     
@@ -61,15 +61,20 @@ public class Lover extends PlayerRole implements TextRole {
     }
     
     @Override
-    public String getAnnouncementMessage(LoadedLocale locale) {
-        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".announcement");
-    }
-    
-    @Override
     public void onMessageSent(GenericMessageEvent genericMessageEvent) {
     
     }
-    
+
+    @Override
+    public String getRoundStartAnnouncement(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".round-start");
+    }
+
+    @Override
+    public String getRoundEndAnnouncement(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".round-end");
+    }
+
     @Override
     public void onReactionAdded(GenericMessageEvent genericMessageEvent) {
     

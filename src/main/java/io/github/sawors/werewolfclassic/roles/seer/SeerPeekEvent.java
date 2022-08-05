@@ -17,7 +17,9 @@ public class SeerPeekEvent extends GameEvent implements RoleEvent {
     public void start(GameManager manager) {
     
     
-        manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getAnnouncementMessage(manager.getLanguage())).queue();
+        manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundStartAnnouncement(manager.getLanguage())).queue();
+        manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundEndAnnouncement(manager.getLanguage())).queue();
+
         manager.nextEvent();
     }
     

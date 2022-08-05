@@ -13,20 +13,22 @@ roles:
     name: "Sorcière"
     channel: "🐀sorcière"
     text: "*Tu es une sorcière Harry*"
-    announcement: "*La **Sorcière** se réveille, elle peut choisir de ressusciter la victime des Loups, tuer quelqu'un ou ne rien faire*"
     role-description: |-
       **>description here<**
     win-condition: "La Sorcière est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
     thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/5/53/Carte5.png/revision/latest?cb=20210104171444&path-prefix=fr"
+    round-start: "*La **Sorcière** se réveille, elle peut choisir de ressusciter la victime des Loups, tuer quelqu'un ou ne rien faire*"
+    round-end: "*La **Sorcière** se rendort...*"
   seer:
     name: "Voyante"
     channel: "🔮voyante"
     text: "*Je vois... je vois...*"
-    announcement: "*La **Voyante** se réveille et indique une personne dont elle souhaiterais voir le rôle*"
     role-description: |-
       **>description here<**
     win-condition: "La Voyante est alliée au Village, elle doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
     thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/b/be/Carte3.png/revision/latest?cb=20210104171212&path-prefix=fr"
+    round-start: "*La **Voyante** se réveille et indique une personne dont elle souhaiterais voir le rôle*"
+    round-end: "*La **Voyante** se rendort...*"
   littlegirl:
     name: "Petite Fille"
     channel: "🌒petite-fille"
@@ -40,29 +42,32 @@ roles:
     name: "Cupidon"
     channel: "🏹cupidon"
     text: "*Le chemin le plus rapide vers que coeur de quelqu'un, c'est à travers sa poitrine*"
-    announcement: "*Le **Cupidon** se réveille, ce soir il frappera deux personnes d'un amour fou qui les liera dans la vie comme dans la mort*"
     role-description: |-
       **>description here<**
     win-condition: "Cupidon est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
     thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/0/09/Carte7.png/revision/latest?cb=20210104171708&path-prefix=fr"
+    round-start: "*Le **Cupidon** se réveille, ce soir il frappera deux personnes d'un amour fou qui les liera dans la vie comme dans la mort*"
+    round-end: "*Le **Cupdidon** peut se rendormir...*"
   lover:
     name: "Amoureux"
     channel: "💘amoureux"
     text: "*Touchés par la Flèche*"
-    announcement: "*Les **Amoureux** se réveillent et prennent connaissance l'un de l'autre*"
     role-description: |-
       **>description here<**
     win-condition: "Les Amoureux ont un objectif particulier"
     thumbnail: "https://c-fa.cdn.smule.com/rs-s95/arr/3f/2d/f9cad67e-9fb3-483c-afdb-c4e4dafc4eda.jpg"
+    round-start: "*Les **Amoureux** se réveillent et prennent connaissance l'un de l'autre*"
+    round-end: "*Les **Amoureux** se rendorment...*"
   hunter:
     name: "Chasseur"
     channel: "🐗chasseur"
     text: "*Armé, Chargé, Calibré*"
-    announcement: ""
     role-description: |-
       **>description here<**
     win-condition: "Le Chasseur est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
     thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/0/0e/Carte6.png/revision/latest?cb=20210104171604&path-prefix=fr"
+    round-start: "*Le **Chasseur** décide sur qui tombera sa vengeance...*"
+    round-end: "*Dans un ultime coup de feu le **Chasseur** quitte ce monde en emportant avec lui* **%user%**"
 
 votes:
   witch-action:
@@ -81,12 +86,15 @@ votes:
   seer:
     title: "De qui souhaitez vous voir le role ?"
     description: "Choisissez une personne dont vous souhaitez découvrir le rôle"
+    end: "**%user%** est "
   cupid:
     title: "Qui sera frappé par vos flèches ?"
     description: "Choisissez deux personnes que vous souhaitez lier d'amour. \nUne fois le couple créé leur objectif est de survivre ensembles jusqu'à la fin de la partie, lorsqu'un des Amoureux meurt l'autre meurt de chagrin.\nSi deux rôles de camps différents sont liés leur but est de gagner seuls en éliminant tous les autres joueurs"
+    end: ""
   hunter:
     title: "Sur qui souhaitez vous abattre votre vengeance ?"
     description: "Choisissez un joueur à exécuter"
+    end: ""
 
 
 
