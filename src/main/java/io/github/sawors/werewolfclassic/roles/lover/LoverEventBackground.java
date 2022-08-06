@@ -5,6 +5,7 @@ import io.github.sawors.werewolfgame.database.UserId;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.GameManager;
 import io.github.sawors.werewolfgame.game.events.BackgroundEvent;
+import io.github.sawors.werewolfgame.game.events.DeathValidateEvent;
 import io.github.sawors.werewolfgame.game.events.RoleEvent;
 import io.github.sawors.werewolfgame.game.roles.PlayerRole;
 
@@ -34,8 +35,10 @@ public class LoverEventBackground extends BackgroundEvent implements RoleEvent {
             manager.getMainTextChannel().sendMessage("ono jemeure").queue();
             for(UserId collateral : killed){
                 manager.getMainTextChannel().sendMessage("collatéral : "+collateral).queue();
-                manager.confirmDeath(collateral);
+                manager.killUser(collateral);
             }
+            manager.overwriteCurrentEvent(new DeathValidateEvent(Main.getRootExtensionn(), false));
+            manager.getCurrentEvent().start(manager);
         }
     }
     

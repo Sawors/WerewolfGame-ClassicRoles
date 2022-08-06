@@ -91,7 +91,8 @@ votes:
   cupid:
     title: "Qui sera frappé par vos flèches ?"
     description: "Choisissez deux personnes que vous souhaitez lier d'amour. \nUne fois le couple créé leur objectif est de survivre ensembles jusqu'à la fin de la partie, lorsqu'un des Amoureux meurt l'autre meurt de chagrin.\nSi deux rôles de camps différents sont liés leur but est de gagner seuls en éliminant tous les autres joueurs"
-    end: ""
+    end: "**%user1%** ressent à présent un amour fou pour **%user2%**"
+    arrow: "**%user%** a été touche par votre flèche"
   hunter:
     title: "Sur qui souhaitez vous abattre votre vengeance ?"
     description: "Choisissez un joueur à exécuter"

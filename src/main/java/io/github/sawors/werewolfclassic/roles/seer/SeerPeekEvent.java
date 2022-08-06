@@ -47,8 +47,6 @@ public class SeerPeekEvent extends GenericVote implements RoleEvent {
         votemessage.setThumbnail(texts.get("roles.seer.thumbnail"));
 
         manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundStartAnnouncement(manager.getLanguage())).queue();
-        Main.logAdmin("Started seer peek");
-        votechannel.sendMessage("yo").queue();
         start(manager, votemessage,false);
     }
 
