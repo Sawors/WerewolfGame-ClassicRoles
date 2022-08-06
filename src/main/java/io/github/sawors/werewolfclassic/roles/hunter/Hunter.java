@@ -65,12 +65,12 @@ public class Hunter extends PrimaryRole implements TextRole {
 
     @Override
     public String getRoundStartAnnouncement(LoadedLocale locale) {
-        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".round-start");
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles.hunter.round-start");
     }
 
     @Override
     public String getRoundEndAnnouncement(LoadedLocale locale) {
-        return new TranslatableText(getExtension().getTranslator(), locale).get("roles."+getRoleName()+".round-end");
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles.hunter.round-end");
     }
 
     @Override

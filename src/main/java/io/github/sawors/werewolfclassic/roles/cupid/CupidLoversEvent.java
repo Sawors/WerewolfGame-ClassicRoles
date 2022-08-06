@@ -19,6 +19,7 @@ public class CupidLoversEvent extends GameEvent implements RoleEvent {
 
         manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundStartAnnouncement(manager.getLanguage())).queue();
         manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundEndAnnouncement(manager.getLanguage())).queue();
+        manager.nextEvent();
     }
     
     @Override

@@ -47,7 +47,7 @@ roles:
     win-condition: "Cupidon est allié au Village, il doit éliminer les Loups-Garou avant qu'ils ne dévorent tout le monde"
     thumbnail: "https://static.wikia.nocookie.net/loupgaroumal/images/0/09/Carte7.png/revision/latest?cb=20210104171708&path-prefix=fr"
     round-start: "*Le **Cupidon** se réveille, ce soir il frappera deux personnes d'un amour fou qui les liera dans la vie comme dans la mort*"
-    round-end: "*Le **Cupdidon** peut se rendormir...*"
+    round-end: "*Le **Cupidon** peut se rendormir...*"
   lover:
     name: "Amoureux"
     channel: "💘amoureux"
@@ -86,7 +86,7 @@ votes:
   seer:
     title: "De qui souhaitez vous voir le role ?"
     description: "Choisissez une personne dont vous souhaitez découvrir le rôle"
-    end: "**%user%** est "
+    end: "**%user%** se révèle être **%role%**"
   cupid:
     title: "Qui sera frappé par vos flèches ?"
     description: "Choisissez deux personnes que vous souhaitez lier d'amour. \nUne fois le couple créé leur objectif est de survivre ensembles jusqu'à la fin de la partie, lorsqu'un des Amoureux meurt l'autre meurt de chagrin.\nSi deux rôles de camps différents sont liés leur but est de gagner seuls en éliminant tous les autres joueurs"

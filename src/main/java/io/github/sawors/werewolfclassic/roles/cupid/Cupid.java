@@ -64,13 +64,13 @@ public class Cupid extends PrimaryRole implements TextRole {
     }
 
     @Override
-    public String getRoundStartAnnouncement(LoadedLocale loadedLocale) {
-        return null;
+    public String getRoundStartAnnouncement(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles.cupid.round-start");
     }
 
     @Override
-    public String getRoundEndAnnouncement(LoadedLocale loadedLocale) {
-        return null;
+    public String getRoundEndAnnouncement(LoadedLocale locale) {
+        return new TranslatableText(getExtension().getTranslator(), locale).get("roles.cupid.round-end");
     }
 
     @Override

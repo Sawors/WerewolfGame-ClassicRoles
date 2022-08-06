@@ -17,6 +17,7 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
     
@@ -34,8 +35,15 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
     
     @Override
     public void start(GameManager manager) {
-        
+
         manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundStartAnnouncement(manager.getLanguage())).queue();
+
+        // this check can be copy/pasted, it removes users if : they do not have any role OR have the role of this RoleEvent OR are dead (validated)
+        Set<UserId> voters = manager.getRealPlayers();
+        voters.removeIf(us -> manager.getPlayerRoles().get(us) == null ||!(manager.getPlayerRoles().get(us).getMainRole().equals(getRole())) || !manager.getPlayerRoles().get(us).isAlive());
+        voters.add(UserId.fromString("sawors01"));
+        this.voters = voters;
+
         start(manager, new EmbedBuilder());
     }
     
@@ -49,7 +57,7 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
         
         this.manager = manager;
         votechannel = manager.getRoleChannel(getRole());
-        
+
         
         TranslatableText texts = new TranslatableText(getExtension().getTranslator(), manager.getLanguage());
         
@@ -97,14 +105,14 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
     
     @Override
     public void validate(boolean force, boolean wait) {}
-    
+
     @Override
-    public void setVote(UserId voter, String voted) {
-        switch (voted) {
+    public void doAction(UserId user, String action) {
+        switch (action) {
             case killaction -> {
                 Main.logAdmin("Witch kill");
                 manager.overwriteCurrentEvent(new WitchKillEvent(getExtension()));
-                WerewolfPlayer witchplayer = manager.getPlayerRoles().get(voter);
+                WerewolfPlayer witchplayer = manager.getPlayerRoles().get(user);
                 if(witchplayer != null){
                     witchplayer.addTag(nokilltag);
                 }
@@ -113,7 +121,7 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
             case saveaction -> {
                 Main.logAdmin("Witch save");
                 manager.resurrectUser(new ArrayList<>(manager.getPendingDeath()).get(0));
-                WerewolfPlayer witchplayer = manager.getPlayerRoles().get(voter);
+                WerewolfPlayer witchplayer = manager.getPlayerRoles().get(user);
                 if(witchplayer != null){
                     witchplayer.addTag(nohealtag);
                 }
