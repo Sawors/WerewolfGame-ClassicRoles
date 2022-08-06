@@ -42,7 +42,7 @@ public class WitchKillEvent extends GenericVote implements RoleEvent {
         votemessage.setDescription(texts.get("votes.witch-kill.description"));
         votemessage.setThumbnail(texts.get("roles.witch.thumbnail"));
         
-        start(gamemanager, votemessage);
+        start(gamemanager, votemessage,false);
     }
     
     @Override

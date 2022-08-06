@@ -44,7 +44,7 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
         voters.add(UserId.fromString("sawors01"));
         this.voters = voters;
 
-        start(manager, new EmbedBuilder());
+        start(manager, new EmbedBuilder(),false);
     }
     
     @Override
@@ -53,7 +53,7 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
     }
     
     @Override
-    public void start(GameManager manager, EmbedBuilder embed){
+    public void start(GameManager manager, EmbedBuilder embed, boolean createthread){
         
         this.manager = manager;
         votechannel = manager.getRoleChannel(getRole());
