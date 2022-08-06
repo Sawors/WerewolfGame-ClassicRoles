@@ -75,6 +75,7 @@ public class CupidLoversEvent extends GenericVote implements RoleEvent {
             // create a new "lovers" team if players are from different teams, otherwise it keeps them in the same team (and they can win with their team)
             if(!Objects.equals(manager.getPlayerTeam(lovers.get(0)),manager.getPlayerTeam(lovers.get(1)))){
                 String teamname = "lovers";
+                Main.logAdmin("using lover team");
                 manager.registerNewTeam(teamname);
                 for(UserId uid : lovers){
                     manager.removePlayerFromTeam(manager.getPlayerTeam(uid),uid);

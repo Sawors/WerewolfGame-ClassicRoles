@@ -31,6 +31,11 @@ public class LoverEventBackground extends BackgroundEvent implements RoleEvent {
         
         if(manager.getUsersWithRole(getRole()).contains(victim)){
             killed.remove(victim);
+            for(UserId id : killed){
+                if(!manager.getAlivePlayers().contains(id)){
+                    return;
+                }
+            }
             Main.logAdmin("Lovers die now");
             manager.getMainTextChannel().sendMessage("ono jemeure").queue();
             for(UserId collateral : killed){
