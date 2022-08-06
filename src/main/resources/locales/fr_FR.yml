@@ -83,6 +83,7 @@ votes:
   witch-kill:
     title: "Qui voulez vous tuer ?"
     description: "Choisissez la personne que vous souhaitez tuer, une fois votre choix fait vous perdez la possibilité de tuer quelqu'un avec vos potions"
+    end: "**%user%** *a été touché par votre poison*"
   seer:
     title: "De qui souhaitez vous voir le role ?"
     description: "Choisissez une personne dont vous souhaitez découvrir le rôle"

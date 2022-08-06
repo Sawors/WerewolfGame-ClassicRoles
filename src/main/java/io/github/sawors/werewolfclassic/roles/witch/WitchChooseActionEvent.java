@@ -110,6 +110,7 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
     public void doAction(UserId user, String action) {
         switch (action) {
             case killaction -> {
+                closeVote();
                 Main.logAdmin("Witch kill");
                 manager.overwriteCurrentEvent(new WitchKillEvent(getExtension()));
                 WerewolfPlayer witchplayer = manager.getPlayerRoles().get(user);
@@ -119,21 +120,22 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
                 manager.getCurrentEvent().start(manager);
             }
             case saveaction -> {
+                closeVote();
                 Main.logAdmin("Witch save");
                 manager.resurrectUser(new ArrayList<>(manager.getPendingDeath()).get(0));
                 WerewolfPlayer witchplayer = manager.getPlayerRoles().get(user);
                 if(witchplayer != null){
                     witchplayer.addTag(nohealtag);
                 }
-                closeVote();
+                
                 votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(), manager.getLanguage()).get("votes.witch-action.confirm").replaceAll("%user%",victimname)).queue();
                 manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundEndAnnouncement(manager.getLanguage())).queue();
                 manager.nextEvent();
             }
             case ignoreaction -> {
+                closeVote();
                 Main.logAdmin("Witch ignore");
                 votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(), manager.getLanguage()).get("votes.witch-action.ignore-confirm")).queue();
-                closeVote();
                 manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundEndAnnouncement(manager.getLanguage())).queue();
                 manager.nextEvent();
             }
