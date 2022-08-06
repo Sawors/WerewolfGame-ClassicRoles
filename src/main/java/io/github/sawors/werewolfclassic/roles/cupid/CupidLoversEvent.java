@@ -74,7 +74,7 @@ public class CupidLoversEvent extends GenericVote implements RoleEvent {
             votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(),manager.getLanguage()).get("votes.cupid.end").replaceAll("%user1%", lovers.get(0).toString()).replaceAll("%user2%", lovers.get(1).toString())).queue();
             // create a new "lovers" team if players are from different teams, otherwise it keeps them in the same team (and they can win with their team)
             if(!Objects.equals(manager.getPlayerTeam(lovers.get(0)),manager.getPlayerTeam(lovers.get(1)))){
-                String teamname = "lovers";
+                String teamname = "LOVERS";
                 Main.logAdmin("using lover team");
                 manager.registerNewTeam(teamname);
                 for(UserId uid : lovers){
