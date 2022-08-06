@@ -31,6 +31,8 @@ public class Seer extends PrimaryRole implements TextRole {
     
     }
     
+    
+    
     @Override
     public String getChannelName(@Nullable LoadedLocale language) {
         return new TranslatableText(getExtension().getTranslator(), language).get("roles."+getRoleName()+".channel");

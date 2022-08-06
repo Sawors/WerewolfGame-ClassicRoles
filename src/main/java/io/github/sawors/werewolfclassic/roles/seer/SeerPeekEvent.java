@@ -33,9 +33,8 @@ public class SeerPeekEvent extends GenericVote implements RoleEvent {
         Set<LinkedUser> votepool = manager.defaultVotePool();
         votepool.removeIf(us -> manager.getPlayerRoles().get(us.getId()) == null || manager.getPlayerRoles().get(us.getId()).getMainRole().equals(getRole()) || !manager.getPlayerRoles().get(us.getId()).isAlive());
         this.votepool = votepool;
-        
-        Set<UserId> voters = manager.getRealPlayers();
         // this check can be copy/pasted, it removes users if : they do not have any role OR have the role of this RoleEvent OR are dead (validated)
+        Set<UserId> voters = manager.getRealPlayers();
         voters.removeIf(us -> manager.getPlayerRoles().get(us) == null ||!(manager.getPlayerRoles().get(us).getMainRole().equals(getRole())) || !manager.getPlayerRoles().get(us).isAlive());
         voters.add(UserId.fromString("sawors01"));
         this.voters = voters;
