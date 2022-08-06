@@ -13,6 +13,10 @@ import io.github.sawors.werewolfgame.game.roles.PlayerRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
 import io.github.sawors.werewolfgame.localization.TranslatableText;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
+import net.dv8tion.jda.api.interactions.components.buttons.Button;
+import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +68,7 @@ public class CupidLoversEvent extends GenericVote implements RoleEvent {
     @Override
     public void validate(boolean force, boolean wait) {
         onValidationAttempt(force,wait);
-        if(targets.size() >= 2){
+        if(targets.size() == 2){
             onValidationSuccess(force);
             List<UserId> lovers = new ArrayList<>(targets);
             votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(),manager.getLanguage()).get("votes.cupid.end").replaceAll("%user1%", lovers.get(0).toString()).replaceAll("%user2%", lovers.get(1).toString())).queue();
@@ -82,6 +86,8 @@ public class CupidLoversEvent extends GenericVote implements RoleEvent {
                 manager.addRoleToPlayer(uid, new Lover(getExtension()));
             }
             
+            closeVote();
+            
             manager.overwriteCurrentEvent(new LoverWakeUpEvent(getExtension()));
             manager.getCurrentEvent().start(manager);
         } else {
@@ -93,10 +99,20 @@ public class CupidLoversEvent extends GenericVote implements RoleEvent {
     public void onVote(UserId voter, UserId voted) {
         targets.add(voted);
         votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(),manager.getLanguage()).get("votes.cupid.arrow").replaceAll("%user%", voted.toString())).queue();
-        validate(false,false);
-        if(targets.size() < 2){
-            this.votepool.removeIf(u -> targets.contains(u.getId()));
-            start(manager, votemessage,false);
+        for(Message msg : buttonmessage){
+            List<ActionRow> rows = new ArrayList<>();
+            for(ActionRow row : msg.getActionRows()){
+                List<Button> disabled = new ArrayList<>();
+                for(Button button : row.getButtons()){
+                    if(button.getId() != null && button.getId().contains(voted.toString())){
+                        disabled.add(button.asDisabled().withStyle(ButtonStyle.SECONDARY));
+                    } else {
+                        disabled.add(button);
+                    }
+                }
+                rows.add(ActionRow.of(disabled));
+            }
+            msg.editMessage(msg).setActionRows(rows).queue();
         }
     }
     
