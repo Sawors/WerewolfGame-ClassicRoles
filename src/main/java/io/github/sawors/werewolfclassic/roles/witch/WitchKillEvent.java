@@ -65,16 +65,13 @@ public class WitchKillEvent extends GenericVote implements RoleEvent {
     
     
     // These 3 override can be copy/pasted if you want to disable default vote behaviour (typically for single-player roles) but still trigger events (YOU SHOULD NEVER REMOVE EVENT TRIGGERING)
-    
     @Override
     public void validate(boolean force, boolean wait) {
         onValidationAttempt(force,wait);
         onValidationSuccess(force);
     }
-    
     @Override
     public void onVoteNew(UserId voter, UserId voted) {}
-    
     @Override
     public void onVoteChanged(UserId voter, UserId voted) {}
 }

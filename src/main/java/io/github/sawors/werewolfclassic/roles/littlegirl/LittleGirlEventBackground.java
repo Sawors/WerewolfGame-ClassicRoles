@@ -11,11 +11,11 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Map;
 
-public class LittleGirlListenEvent extends BackgroundEvent implements RoleEvent {
+public class LittleGirlEventBackground extends BackgroundEvent implements RoleEvent {
     
     GameManager manager;
     
-    public LittleGirlListenEvent(WerewolfExtension extension) {
+    public LittleGirlEventBackground(WerewolfExtension extension) {
         super(extension);
     }
     

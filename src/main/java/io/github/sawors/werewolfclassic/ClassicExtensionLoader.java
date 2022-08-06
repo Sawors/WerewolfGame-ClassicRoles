@@ -2,9 +2,11 @@ package io.github.sawors.werewolfclassic;
 
 import io.github.sawors.werewolfclassic.roles.cupid.Cupid;
 import io.github.sawors.werewolfclassic.roles.hunter.Hunter;
+import io.github.sawors.werewolfclassic.roles.hunter.HunterEventBackground;
 import io.github.sawors.werewolfclassic.roles.littlegirl.LittleGirl;
-import io.github.sawors.werewolfclassic.roles.littlegirl.LittleGirlListenEvent;
+import io.github.sawors.werewolfclassic.roles.littlegirl.LittleGirlEventBackground;
 import io.github.sawors.werewolfclassic.roles.lover.Lover;
+import io.github.sawors.werewolfclassic.roles.lover.LoverEventBackground;
 import io.github.sawors.werewolfclassic.roles.seer.Seer;
 import io.github.sawors.werewolfclassic.roles.witch.Witch;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
@@ -23,7 +25,9 @@ public class ClassicExtensionLoader extends WerewolfExtension
         );
         
         registerBackgroundEvents(
-                new LittleGirlListenEvent(this)
+                new HunterEventBackground(this),
+                new LittleGirlEventBackground(this),
+                new LoverEventBackground(this)
         );
         
         addBundledLocale(
