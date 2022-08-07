@@ -1,5 +1,6 @@
 package io.github.sawors.werewolfclassic.roles.seer;
 
+import io.github.sawors.werewolfgame.DatabaseManager;
 import io.github.sawors.werewolfgame.LinkedUser;
 import io.github.sawors.werewolfgame.Main;
 import io.github.sawors.werewolfgame.database.UserId;
@@ -60,7 +61,7 @@ public class SeerPeekEvent extends GenericVote implements RoleEvent {
         String name = "";
         String role = "";
         if(manager.getPlayerRoles().containsKey(voted)){
-            name = voted.toString();
+            name = DatabaseManager.getName(voted);
             role = manager.getPlayerRoles().get(voted).getMainRole() != null ? new TranslatableText(manager.getPlayerRoles().get(voted).getMainRole().getExtension().getTranslator(), manager.getLanguage()).get("roles."+manager.getPlayerRoles().get(voted).getMainRole().getRoleName()+".name") : "??????";
         }
         manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundEndAnnouncement(manager.getLanguage())).queue();

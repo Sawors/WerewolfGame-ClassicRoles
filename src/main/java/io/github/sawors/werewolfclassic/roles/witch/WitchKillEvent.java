@@ -1,5 +1,6 @@
 package io.github.sawors.werewolfclassic.roles.witch;
 
+import io.github.sawors.werewolfgame.DatabaseManager;
 import io.github.sawors.werewolfgame.LinkedUser;
 import io.github.sawors.werewolfgame.database.UserId;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
@@ -10,7 +11,6 @@ import io.github.sawors.werewolfgame.game.roles.PlayerRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
 import io.github.sawors.werewolfgame.localization.TranslatableText;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.User;
 
 import java.util.Set;
 
@@ -54,8 +54,7 @@ public class WitchKillEvent extends GenericVote implements RoleEvent {
     public void onVote(UserId voter, UserId voted) {
         manager.killUser(voted);
         manager.getMainTextChannel().sendMessage(((TextRole)getRole()).getRoundEndAnnouncement(manager.getLanguage())).queue();
-        User w = manager.getDiscordUser(voted);
-        String victimname = w != null ? w.getName() : voted.toString();
+        String victimname = DatabaseManager.getName(voted);
         votechannel.sendMessage(new TranslatableText(getExtension().getTranslator(), manager.getLanguage()).get("votes.witch-kill.end").replaceAll("%user%",victimname)).queue();
         closeVote();
         manager.nextEvent();

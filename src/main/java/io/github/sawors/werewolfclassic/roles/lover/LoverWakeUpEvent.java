@@ -1,5 +1,6 @@
 package io.github.sawors.werewolfclassic.roles.lover;
 
+import io.github.sawors.werewolfgame.DatabaseManager;
 import io.github.sawors.werewolfgame.database.UserId;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
 import io.github.sawors.werewolfgame.game.GameManager;
@@ -25,7 +26,7 @@ public class LoverWakeUpEvent extends GameEvent implements RoleEvent {
         if(chan != null){
             for(UserId id : manager.getUsersWithRole(getRole())){
                 User u = manager.getDiscordUser(id);
-                chan.sendMessage(u != null ? u.getAsMention() : id.toString()).queue();
+                chan.sendMessage(DatabaseManager.getName(id)).queue();
                 if(u != null){
                     chan.getPermissionContainer().getManager().putMemberPermissionOverride(u.getIdLong(), List.of(Permission.MESSAGE_SEND,Permission.VIEW_CHANNEL),List.of(Permission.UNKNOWN)).queue();
                 }

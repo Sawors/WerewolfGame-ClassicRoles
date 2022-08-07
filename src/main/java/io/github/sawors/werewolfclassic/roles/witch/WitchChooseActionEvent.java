@@ -1,5 +1,6 @@
 package io.github.sawors.werewolfclassic.roles.witch;
 
+import io.github.sawors.werewolfgame.DatabaseManager;
 import io.github.sawors.werewolfgame.Main;
 import io.github.sawors.werewolfgame.database.UserId;
 import io.github.sawors.werewolfgame.extensionsloader.WerewolfExtension;
@@ -11,7 +12,6 @@ import io.github.sawors.werewolfgame.game.roles.PlayerRole;
 import io.github.sawors.werewolfgame.game.roles.TextRole;
 import io.github.sawors.werewolfgame.localization.TranslatableText;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 
@@ -72,8 +72,7 @@ public class WitchChooseActionEvent extends GenericVote implements RoleEvent {
         Button ignorebutton = Button.primary("vote:"+manager.getId()+"#"+ignoreaction,texts.get("votes.witch-action.ignore-label"));
         
         if(manager.getPendingDeath().size() > 0){
-            User w = manager.getDiscordUser(new ArrayList<>(manager.getPendingDeath()).get(0));
-            victimname = w != null ? w.getName() : new ArrayList<>(manager.getPendingDeath()).get(0).toString();
+            victimname = DatabaseManager.getName(new ArrayList<>(manager.getPendingDeath()).get(0));
             votechannel.sendMessage(texts.get("votes.witch-action.victim-announcement").replaceAll("%user%",victimname)).queue();
         } else {
             killbutton = killbutton.asDisabled();
